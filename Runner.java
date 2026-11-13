@@ -8,9 +8,9 @@ public class Runner{
 
         //gathering preliminary info
         System.out.println("Input the inital Y value: ");
-        int initialY = scanner.nextInt();
+        double initialY = scanner.nextInt();
         System.out.println("Input the initial X value: ");
-        int initialX = scanner.nextInt();
+        double initialX = scanner.nextInt();
         System.out.println("Input the step size: ");
         double stepSize = scanner.nextDouble();
         System.out.println("Input the y of the first order DE");
