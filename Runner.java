@@ -9,9 +9,9 @@ public class Runner{
         //Goal 1: Figure out EulerMethod for 1st order DEs
         //gathering preliminary info
         System.out.println("Input the inital Y value: ");
-        double initialY = scanner.nextInt();
+        double initialY = scanner.nextDouble();
         System.out.println("Input the initial X value: ");
-        double initialX = scanner.nextInt();
+        double initialX = scanner.nextDouble();
         System.out.println("Input the step size: ");
         double stepSize = scanner.nextDouble();
         System.out.println("What x value do you want to estimate the y value at? ");
