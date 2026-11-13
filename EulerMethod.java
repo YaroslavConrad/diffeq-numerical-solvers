@@ -28,19 +28,13 @@ public class EulerMethod{
         this.deC = deC;
 
         this.stepSize = stepSize;
-
         this.finalX = finalX;
-    
     }
 
     public String estimateY()
     {
-
-        double totalSteps = ( (finalX - iniX)/ stepSize );
-        double initialSlope =  ( ( iniY*deY ) + ( iniX*deX ) );
         double currentY = iniY;
         double previousY = 0;
-        double previousX = 0;
         double m = 0;
 
         // y = mx + b
@@ -51,13 +45,6 @@ public class EulerMethod{
         //1. S1 = Y1 * deY + X1 * deX 
         //2. X2 is X1 + stepSize;
         //3. Y2 = S1 * X2 + Y1
-        //repeat...
-        //1.
-        
-        //how many times are we adding stepSize to iniX? 
-        //i = currentX
-        //y = mx + b
-
         for(double i = iniX; i < finalX; i+=stepSize)
         {
             m = currentY * deY  +  i * deX  + deC ;
