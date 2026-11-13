@@ -18,6 +18,7 @@ public class Runner{
         System.out.println("Input the x of the first order DE");
         double deX = scanner.nextDouble();
 
+        
         System.out.println(initialY);
 
         //Goal 1: Figure out EulerMethod for 1st order DEs
