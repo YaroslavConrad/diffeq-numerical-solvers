@@ -1,7 +1,6 @@
 public class EulerMethod{
     
-    //inputs should be step size (h), differential equation (ex. dy/dx = x + 2y)
-    //initial value (ex. y(0) = 1) (potentially as a plotted point)
+    //delta x 
     private double stepSize = 0;
 
     //the x coefficient and y coefficient of the 1st order linear DE
@@ -17,7 +16,7 @@ public class EulerMethod{
     //final x value at which we will estimate the y value with Euler's
     private double finalX = 0.0;
 
-    //test parameters: (3, 0, 2, 0, 1, 0.2, 0.4) expected output: 2.6
+    //constructor
     public EulerMethod(double deX, double deY, double deC, double iniX, double iniY, double stepSize, double finalX)
     {
         this.iniY = iniY;
@@ -37,14 +36,7 @@ public class EulerMethod{
         double previousY = 0;
         double m = 0;
 
-        // y = mx + b
-        //1. iniY * deY + iniX * deX (S0)
-        //2. Looking for Y1 at next X1 (iniX + stepSize)
-        //3. Y1 = S0 * X1 + iniY
-        //repeat...
-        //1. S1 = Y1 * deY + X1 * deX 
-        //2. X2 is X1 + stepSize;
-        //3. Y2 = S1 * X2 + Y1
+        //y_(n+1) = y_n + h * f(x_n, y_n)
         for(double i = iniX; i < finalX; i+=stepSize)
         {
             m = currentY * deY  +  i * deX  + deC ;
