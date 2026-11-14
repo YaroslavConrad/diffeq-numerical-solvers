@@ -25,5 +25,6 @@ public class Runner{
 
         EulerMethod test1 = new EulerMethod(deX, deY, deC, initialX, initialY, stepSize, finalX);
         System.out.println(test1.estimateY());
+        System.out.println(test1.RK4());
     }
 }
