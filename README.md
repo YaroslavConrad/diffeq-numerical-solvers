@@ -14,4 +14,4 @@ java Runner
 
 ## Roadmap
 - [x] Euler's Method
-- [ ] 4th-Order Runge-Kutta (RK4)
+- [X] 4th-Order Runge-Kutta (RK4)
