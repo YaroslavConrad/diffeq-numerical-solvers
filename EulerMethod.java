@@ -45,23 +45,25 @@ public class EulerMethod{
 
     public String RK4()
     {
-        double currentY = intY;
+        double currentY = iniY;
+        double previousY = 0;
 
+        //i = the current x
         for(double i = iniX; i < finalX; i+=stepSize)
         {
             //inputs
             double h = stepSize;
             
-            double k1 = currentX*deX + curreY*deY + deC;
-            double k2 = ( currentX + h/2 )*deX + ( currentY + (h*k1/2) )*deY + deC;
-            double k3 = ( currentX + h/2 )*deX + ( currentY + (h*k2/2) )*deY + deC;
-            double k4 = ( currentX + h)*deX + ( currentY + (h*k3) )*deY + deC;
+            double k1 = i*deX + currentY*deY + deC;
+            double k2 = ( i + h/2 )*deX + ( currentY + (h*k1/2) )*deY + deC;
+            double k3 = ( i + h/2 )*deX + ( currentY + (h*k2/2) )*deY + deC;
+            double k4 = ( i + h)*deX + ( currentY + (h*k3) )*deY + deC;
 
             previousY = currentY;
             currentY = previousY + (h/6)*(k1 + 2*k2 + 2*k3 + k4);
         }
 
-        return "estimated y by RK4 at x = " + finalX + " is " + currY; 
+        return "estimated y by RK4 at x = " + finalX + " is " + currentY; 
     }
 
 }
