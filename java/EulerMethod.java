@@ -29,49 +29,6 @@ public class EulerMethod{
         totalSteps = (int)Math.round( (finalX - iniX) /stepSize );
     }
 
-
-    public double estimateY()
-    {
-        double currentY = iniY;
-        double previousY = 0;
-        double m = 0;
-
-        //y_(n+1) = y_n + h * f(x_n, y_n)
-        for(double i = iniX; i < finalX; i+=stepSize)
-        {
-            m = currentY * deY  +  i * deX  + deC ;
-            previousY = currentY;
-            currentY = m * stepSize + previousY;
-        }
-
-        return currentY; 
-    }
-
-
-    public double RK4()
-    {
-        double currentY = iniY;
-        double previousY = 0;
-
-        //i = the current x
-        for(double i = iniX; i < finalX; i+=stepSize)
-        {
-            //inputs
-            double h = stepSize;
-            
-            double k1 = i*deX + currentY*deY + deC;
-            double k2 = ( i + h/2 )*deX + ( currentY + (h*k1/2) )*deY + deC;
-            double k3 = ( i + h/2 )*deX + ( currentY + (h*k2/2) )*deY + deC;
-            double k4 = ( i + h)*deX + ( currentY + (h*k3) )*deY + deC;
-
-            previousY = currentY;
-            currentY = previousY + (h/6)*(k1 + 2*k2 + 2*k3 + k4);
-        }
-
-        return currentY; 
-    }
-    
-
     //goal: print out columns in this format: x, y (eulers), y (RK4)
     //Need a loop that prints all three things in one system.out.println() function for each interation
     //Loop: calculate each ste
@@ -100,15 +57,19 @@ public class EulerMethod{
 
         double currentEulers = iniY;
         double currentRK4 = iniY;
+
         System.out.println(iniX + "," + currentEulers + "," + currentRK4);
 
-        for(double i= iniX; i < finalX; i+=stepSize)
+        for(int x= 0; x < totalSteps; x++)
         {
-            currentEulers = iterativeEulers(i, currentEulers);
-            currentRK4 = iterativeRK4(i, currentRK4);
+            double currentX = stepSize*x + iniX;
+            double nextX = stepSize*(x+1) + iniX;
+
+            currentEulers = iterativeEulers(currentX, currentEulers);
+            currentRK4 = iterativeRK4(currentX, currentRK4);
             //must have a var that shows output of RK4, X, and Eulers for each iteration
             //X, Y (eulers), Y(RK4)
-            System.out.println((i+stepSize) + "," + currentEulers + "," + currentRK4);
+            System.out.println(nextX + "," + currentEulers + "," + currentRK4);
         }
     }
 
