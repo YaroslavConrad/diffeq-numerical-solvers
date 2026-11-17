@@ -6,8 +6,13 @@ public class Runner{
 
         Scanner scanner = new Scanner(System.in);
 
-        //Goal 1: Figure out EulerMethod for 1st order DEs
+        //Goal 1: Figure out EulerMethod & RK4 for 1st order DEs [x]
+        //Goal 2: Figure out EulerMethod & RK4 for 2nd order DEs []
+        //Goal 3: Figure out EulerMethod & RK4 for DE's of all order []
+
+
         //gathering preliminary info
+        
         System.out.println("Input the inital Y value: ");
         double initialY = scanner.nextDouble();
         System.out.println("Input the initial X value: ");
